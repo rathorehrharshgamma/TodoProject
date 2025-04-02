@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonGroup, Button, Typography } from '@mui/material';
+import { ToastContainer } from 'react-toast';
 
 function TodoFilters({ filter, onFilterChange }) {
   
@@ -14,6 +15,7 @@ function TodoFilters({ filter, onFilterChange }) {
   </Typography>
 
     <ButtonGroup fullWidth className="mb-4 mt-4">
+      <ToastContainer/>
       <Button 
         variant={filter === 'all' ? 'contained' : 'outlined'} 
         onClick={() => onFilterChange('all')}

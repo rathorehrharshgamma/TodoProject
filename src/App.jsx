@@ -4,6 +4,7 @@ import TodoFilters from './component/TodoFilter';
 import TodoList from './component/TodoList';
 import TodoInput from './component/TodoInput';
 import {v4 as uuidv4} from 'uuid';
+import { toast, ToastContainer } from 'react-toast';
 function App() {
   const [todos, setTodos] = useState([]);
   
@@ -36,6 +37,9 @@ function App() {
   
   const handleDeleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
+    // toast.success("Deleted Successfully")
+    toast.success(`Delete ${id} task`);
+    
   };
   
   const handleEditTodo = (id, newText) => {
@@ -50,18 +54,25 @@ function App() {
   
   const handleDeleteDoneTasks = () => {
     setTodos(todos.filter(todo => !todo.completed));
+    toast.success("Deleted Done Task Successfully")
+    console.log("Deleted");
   };
   
   const handleDeleteAllTasks = () => {
     setTodos([]);
+    toast.success("Deleted All Task Successfully")
+    console.log("Deleted");
   };
 
   const handleDeleteTodoTasks = () =>{
     setTodos(todos.filter(prev=> prev.completed))
+    toast.success("Deleted Todo Tasks Successfully")
+    console.log("Deleted");
   }
 
   return (
     <Container maxWidth="sm" className="py-8">
+      <ToastContainer/>
       <TodoInput 
         inputValue={inputValue} 
         onInputChange={handleInputChange} 
@@ -83,6 +94,8 @@ function App() {
         onDeleteAllTasks={handleDeleteAllTasks}
         onDeleteTodoTasks={handleDeleteTodoTasks}
       />
+
+      
     </Container>
   );
 }
