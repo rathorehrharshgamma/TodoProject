@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
 
-function TodoActions({ onDeleteDoneTasks, onDeleteAllTasks, filter }) {
+function TodoActions({ onDeleteDoneTasks, onDeleteAllTasks, filter, onDeleteTodoTasks }) {
   return (
     <Box className="flex gap-2 mt-4">
       {filter == "done" && (
@@ -35,33 +35,19 @@ function TodoActions({ onDeleteDoneTasks, onDeleteAllTasks, filter }) {
       )}
 
       {filter == "todo" && (
-        <>
+  
           <Button
             variant="contained"
             color="error"
-            onClick={onDeleteAllTasks}
+            onClick={onDeleteTodoTasks}
             className="flex-1"
             sx={{
               backgroundColor: "#e63946",
               "&:hover": { backgroundColor: "#d62828" },
             }}
           >
-            Delete all tasks
+            Delete Todo Tasks
           </Button>
-
-          <Button
-            variant="contained"
-            color="error"
-            onClick={onDeleteDoneTasks}
-            className="flex-1"
-            sx={{
-              backgroundColor: "#e63946",
-              "&:hover": { backgroundColor: "#d62828" },
-            }}
-          >
-            Delete done tasks
-          </Button>
-        </>
       )}
     </Box>
   );

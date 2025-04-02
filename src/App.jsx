@@ -56,6 +56,10 @@ function App() {
     setTodos([]);
   };
 
+  const handleDeleteTodoTasks = () =>{
+    setTodos(todos.filter(prev=> prev.completed))
+  }
+
   return (
     <Container maxWidth="sm" className="py-8">
       <TodoInput 
@@ -77,6 +81,7 @@ function App() {
         onEditTodo={handleEditTodo}
         onDeleteDoneTasks={handleDeleteDoneTasks}
         onDeleteAllTasks={handleDeleteAllTasks}
+        onDeleteTodoTasks={handleDeleteTodoTasks}
       />
     </Container>
   );

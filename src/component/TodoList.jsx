@@ -9,7 +9,8 @@ function TodoList({
   onDeleteTodo, 
   onEditTodo,
   onDeleteDoneTasks,
-  onDeleteAllTasks
+  onDeleteAllTasks,
+  onDeleteTodoTasks
 }) {
   const filteredTodos = todos.filter(todo => {
     if (filter === 'done') return todo.completed;
@@ -38,7 +39,8 @@ function TodoList({
       <TodoActions 
         filter={filter}
         onDeleteDoneTasks={onDeleteDoneTasks} 
-        onDeleteAllTasks={onDeleteAllTasks} 
+        onDeleteAllTasks={onDeleteAllTasks}
+        onDeleteTodoTasks={onDeleteTodoTasks} 
       />
     </>
   );
