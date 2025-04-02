@@ -50,6 +50,7 @@ function TodoList({
         onDeleteDoneTasks={onDeleteDoneTasks} 
         onDeleteAllTasks={onDeleteAllTasks}
         onDeleteTodoTasks={onDeleteTodoTasks} 
+        todoLength = {filteredTodos.length}
       />
     </>
   );

@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
 
-function TodoActions({ onDeleteDoneTasks, onDeleteAllTasks, filter, onDeleteTodoTasks }) {
+function TodoActions({ onDeleteDoneTasks, onDeleteAllTasks, filter, onDeleteTodoTasks , todoLength}) {
+  if(todoLength === 0) return null;
   return (
     <Box className="flex gap-2 mt-4">
       {filter == "done" && (
