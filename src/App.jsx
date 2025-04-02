@@ -3,7 +3,7 @@ import { Container } from '@mui/material';
 import TodoFilters from './component/TodoFilter';
 import TodoList from './component/TodoList';
 import TodoInput from './component/TodoInput';
-
+import {v4 as uuidv4} from 'uuid';
 function App() {
   const [todos, setTodos] = useState([]);
   
@@ -17,6 +17,7 @@ function App() {
   const handleAddTodo = () => {
     if (inputValue.trim() !== '') {
       const newTodo = {
+        id: uuidv4(),
         text: inputValue,
         completed: false,
       };

@@ -20,17 +20,23 @@ function TodoList({
   return (
     <>
      
-      {filteredTodos.map((todo) => (
+      {filteredTodos.map((todo,index) => (
+        
         <TodoItem 
-          key={todo.id} 
+             
+          key={todo.id || index} 
           todo={todo} 
           onToggleComplete={onToggleComplete}
           onDelete={onDeleteTodo}
           onEdit={onEditTodo}
         />
+        
+        
+        
       ))}
       
       <TodoActions 
+        filter={filter}
         onDeleteDoneTasks={onDeleteDoneTasks} 
         onDeleteAllTasks={onDeleteAllTasks} 
       />
