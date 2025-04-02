@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem'
 import TodoActions from './TodoActions';
+import { Typography,Box } from '@mui/material';
 
 function TodoList({ 
   todos, 
@@ -21,7 +22,15 @@ function TodoList({
   return (
     <>
      
-      {filteredTodos.map((todo,index) => (
+      {filteredTodos.length === 0 ? (
+      <Box className="text-center p-4">
+        <Typography variant='h6' color='textSecondary'>
+          No Task Available
+        </Typography>
+      </Box>)
+      :
+
+      filteredTodos.map((todo,index) => (
         
         <TodoItem 
              

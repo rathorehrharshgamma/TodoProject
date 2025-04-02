@@ -4,7 +4,8 @@ import TodoFilters from './component/TodoFilter';
 import TodoList from './component/TodoList';
 import TodoInput from './component/TodoInput';
 import {v4 as uuidv4} from 'uuid';
-import { toast, ToastContainer } from 'react-toast';
+import { toast, ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [todos, setTodos] = useState([]);
   
@@ -38,7 +39,15 @@ function App() {
   const handleDeleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
     // toast.success("Deleted Successfully")
-    toast.success(`Delete ${id} task`);
+    toast.success('Deleted Task Successfully', {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     
   };
   
@@ -54,25 +63,49 @@ function App() {
   
   const handleDeleteDoneTasks = () => {
     setTodos(todos.filter(todo => !todo.completed));
-    toast.success("Deleted Done Task Successfully")
+    toast.success('Deleted Done Task Successfully', {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     console.log("Deleted");
   };
   
   const handleDeleteAllTasks = () => {
     setTodos([]);
-    toast.success("Deleted All Task Successfully")
+    toast.success('Deleted All Task Successfully', {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     console.log("Deleted");
   };
 
   const handleDeleteTodoTasks = () =>{
     setTodos(todos.filter(prev=> prev.completed))
-    toast.success("Deleted Todo Tasks Successfully")
+    toast.success('Deleted Todo Task Successfully', {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     console.log("Deleted");
   }
 
   return (
+    <>
     <Container maxWidth="sm" className="py-8">
-      <ToastContainer/>
       <TodoInput 
         inputValue={inputValue} 
         onInputChange={handleInputChange} 
@@ -97,6 +130,10 @@ function App() {
 
       
     </Container>
+
+  <ToastContainer/>
+</>
+
   );
 }
 
