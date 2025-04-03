@@ -71,7 +71,7 @@ function App() {
       draggable: true,
       progress: undefined,
     });
-    console.log("Deleted");
+    // console.log("Deleted");
   };
 
   const handleDeleteAllTasks = () => {
@@ -85,7 +85,7 @@ function App() {
       draggable: true,
       progress: undefined,
     });
-    console.log("Deleted");
+    // console.log("Deleted");
   };
 
   const handleDeleteTodoTasks = () => {
@@ -99,7 +99,7 @@ function App() {
       draggable: true,
       progress: undefined,
     });
-    console.log("Deleted");
+    // console.log("Deleted");
   };
 
   return (

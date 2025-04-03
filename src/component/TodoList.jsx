@@ -21,11 +21,13 @@ function TodoList({
   return (
     <>
       {filteredTodos.length === 0 ? (
+        <Suspense fallback={<CircularProgress />}>
         <Box className="text-center p-4">
           <Typography variant="h6" color="textSecondary">
             No Task Available
           </Typography>
         </Box>
+        </Suspense>
       ) : (
         <Suspense fallback={<CircularProgress />}>
           {filteredTodos.map((todo, index) => (
